@@ -1,0 +1,10 @@
+{
+  "name": "AXP Kiwi",
+  "description": "Kiwi Widget by OneKey",
+  "icon": "neo-icon-robot",
+  "tags": ["OneKey"],
+  "version": "1.0.0",
+  "element": "<axp-kiwi></axp-kiwi>",
+  "files": ["/index.js"],
+  "override_url": "https://happily-helped-imp.ngrok-free.app"
+}
