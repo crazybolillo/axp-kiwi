@@ -7,14 +7,15 @@
   "scripts": {
     "build": "parcel build",
     "serve": "http-server dist --cors",
-    "fmt": "prettier --write ."
+    "fmt": "prettier --write .",
+    "lint": "eslint ."
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "eslint": "^9.1.1",
+    "eslint": "^8.56.0",
     "http-server": "^14.1.1",
     "parcel": "^2.12.0",
     "prettier": "^3.2.5"
