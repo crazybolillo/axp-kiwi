@@ -7,13 +7,15 @@
   "scripts": {
     "build": "parcel build",
     "dev": "parcel index.html",
-    "serve": "http-server dist --cors",
+    "serve": "http-server dist --cors -c-1",
     "fmt": "prettier --write .",
     "lint": "eslint ."
   },
   "dependencies": {
+    "ci": "^2.3.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
@@ -26,5 +28,8 @@
     "> 0.5%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "@parcel/resolver-default": {
+    "packageExports": true
+  }
 }
