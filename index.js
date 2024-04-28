@@ -9,7 +9,9 @@ class Component extends HTMLElement {
   }
 
   connectedCallback() {
-    this.root.render(<Widget />);
+    this.root.render(
+      <Widget interactionId={this.getAttribute("interactionId")} />,
+    );
   }
 
   disconnectedCallback() {

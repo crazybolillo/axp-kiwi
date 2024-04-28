@@ -59,17 +59,43 @@ const Greeting = ({ data }) => {
   );
 };
 
+const Interaction = ({ data }) => {
+  if (data === undefined || Object.keys(data).length === 0) {
+    return <></>;
+  }
+
+  return (
+    <div>
+      <h3>Interaction</h3>
+      <ul>
+        <li>contactId: {data.contactId}</li>
+        <li>workRequestId: {data.workRequestId}</li>
+        <li>
+          Attributes
+          <ul>
+            {data.attributes.forEach((attr) => (
+              <li>{attr}</li>
+            ))}
+          </ul>
+        </li>
+      </ul>
+    </div>
+  );
+};
+
 const Button = styled.button``;
 
-const Widget = () => {
-  const api = window.WS?.widgetAPI();
-  let clientDetails;
+const Widget = ({ interactionId }) => {
+  const api = window.WS?.widgetAPI(interactionId);
+
+  let clientDetails = {};
+  let interactionData = {};
   if (api !== undefined) {
     clientDetails = api.getClientDetails();
+    interactionData = api.getInteractionData();
     console.log("Client Details:", clientDetails);
   } else {
     console.log("Widget API is not available.");
-    clientDetails = {};
   }
   const [data, setData] = useState({});
 
@@ -94,6 +120,7 @@ const Widget = () => {
   return (
     <Container>
       <Greeting data={clientDetails} />
+      <Interaction data={interactionData} />
       <form onSubmit={fetchWeather}>
         <div>
           <Field name="lat" label="Latitude" />
