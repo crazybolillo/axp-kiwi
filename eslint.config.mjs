@@ -1,12 +1,20 @@
-import js from "@eslint/js";
+import eslintReact from "eslint-plugin-react";
 
 export default [
-  js.configs.recommended,
   {
+    ignores: ["node_modules/", "dist/"],
+  },
+  {
+    plugins: eslintReact,
     languageOptions: {
       globals: {
         HTMLElement: true,
         customElements: true,
+      },
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
       },
     },
   },
